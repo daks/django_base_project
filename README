@@ -1,0 +1,82 @@
+
+******************
+QUICK AND DIRTY!!!
+******************
+
+*** installation
+
+* clone the repository
+
+hg clone http://bitbucket.org/daks/django_base_project project
+
+
+*** prepare for development (aka CVS/DVCS preparation)
+
+note: hg is used here, use your favourite tool
+
+* remove .hg
+
+rm -fr .hg
+
+* uncomment local_settings.py in .hgignore
+
+* init hg repo
+
+hg init
+
+* init hg mq repo
+
+hg qinit -c
+
+* add all files to your repository
+
+ example :
+
+  hg add .hgignore
+  hg add *
+  hg forget local_settings.py
+
+
+*** setup
+
+* edit files
+
+ * settings 
+
+    * especially SECRET_KEY
+
+      * by hand
+
+      or
+
+      * using django-extensions
+
+       (virtualenv)
+             * install extensions 
+
+             pip install django-extensions
+
+             * edit local_settings.py to add extensions to installed apps
+
+             * generate key
+
+             python manage.py generate_secret_key
+
+             * copy/paste to file
+
+             * remove app
+
+             pip uninstall django-extensions
+
+
+ * urls 
+ 
+
+
+* (virtualenv) adapt requirements.txt to your needs and install all apps
+
+ pip install -r requirements.txt
+
+
+
+
