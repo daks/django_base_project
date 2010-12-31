@@ -1,4 +1,4 @@
-Django==1.2.3
+Django==1.2.4
 MySQL-python
-PIL==1.1.7
-South==0.7.1
+PIL
+South
