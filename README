@@ -7,7 +7,7 @@ QUICK AND DIRTY!!!
 
 * clone the repository
 
-hg clone http://bitbucket.org/daks/django_base_project project
+hg clone http://bitbucket.org/daks/django_base_project <project>
 
 
 *** prepare for development (aka CVS/DVCS preparation)
@@ -16,7 +16,7 @@ note: hg is used here, use your favourite tool
 
 * remove .hg
 
-rm -fr .hg
+rm -fr .hg README
 
 * uncomment local_settings.py in .hgignore
 

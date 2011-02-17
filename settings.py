@@ -1,6 +1,9 @@
 # Django settings for <project> project.
+import os, sys
 
-DEBUG = True
+BASE_DIR = os.path.dirname(__file__)
+
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -45,7 +48,7 @@ USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -62,9 +65,10 @@ SECRET_KEY = '0m&qoo6q100sm!d&h#@1lt09vaxu4i5-j)!o7qw5+(wn)x85r&'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    ('django.template.loaders.cached.Loader', (
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+    )),
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,6 +85,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, 'templates')
 )
 
 INSTALLED_APPS = (
@@ -98,4 +103,6 @@ try:
 except ImportError:
     pass
 
+if 'test' in sys.argv:
+    DATABASE_ENGINE = 'sqlite3'
 
