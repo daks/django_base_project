@@ -1,48 +1,33 @@
 
-******************
-QUICK AND DIRTY!!!
-******************
+Installation
+------------
 
-*** installation
+* clone the repository::
 
-* clone the repository
-
-hg clone http://bitbucket.org/daks/django_base_project <project>
+  hg clone http://bitbucket.org/daks/django_base_project <project>
 
 
-*** prepare for development (aka CVS/DVCS preparation)
+* prepare for development (aka CVS/DVCS preparation)
+  *hg (with MQ) is used here, use your favourite tool*
 
-note: hg is used here, use your favourite tool
+  * remove .hg directory
+  * uncomment local_settings.py in .hgignore
+  * ``$ hg init``
+  * ``hg qinit -c``
+  * add all files to your repository
 
-* remove .hg
-
-rm -fr .hg README
-
-* uncomment local_settings.py in .hgignore
-
-* init hg repo
-
-hg init
-
-* init hg mq repo
-
-hg qinit -c
-
-* add all files to your repository
-
- example :
-
-  hg add .hgignore
-  hg add *
-  hg forget local_settings.py
+    * ``$ hg add .hgignore``
+    * ``$ hg add *``
+    * ``$ hg forget local_settings.py``
 
 
-*** setup
+Setup
+-----
 
 * edit files
 
- * settings 
-
+  * project settings file (settings.py)
+    
     * especially SECRET_KEY
 
       * by hand
@@ -78,5 +63,9 @@ hg qinit -c
  pip install -r requirements.txt
 
 
+Nginx
+-----
 
+* adapt the nginx.conf file
+* copy it to ``/etc/nginx/sites-available\<django_base_project>.conf``
 
