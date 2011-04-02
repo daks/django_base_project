@@ -95,6 +95,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
+    'south',
 )
 
 
@@ -106,3 +107,5 @@ except ImportError:
 if 'test' in sys.argv:
     DATABASE_ENGINE = 'sqlite3'
 
+# disable south migration when testing, for speed reasons
+SOUTH_TESTS_MIGRATE = False
